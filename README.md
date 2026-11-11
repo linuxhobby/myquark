@@ -1,4 +1,4 @@
-# 夸克网盘.全部资源
+# 夸克网盘、百度网盘每月资源汇总
 
 **Telegram 群组**：<a href="https://t.me/wodewangpantop" target="_blank" rel="noopener">https://t.me/wodewangpantop</a> · 群内有资源查询机器人（`/s 关键词`），新资源同步在群里发
 
