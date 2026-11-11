@@ -1,8 +1,8 @@
 # 夸克网盘.全部资源
 
-**Telegram 群组**：[https://t.me/wodewangpantop](https://t.me/wodewangpantop) · 群内有资源查询机器人（`/s 关键词`），新资源同步在群里发
+**Telegram 群组**：<a href="https://t.me/wodewangpantop" target="_blank" rel="noopener">https://t.me/wodewangpantop</a> · 群内有资源查询机器人（`/s 关键词`），新资源同步在群里发
 
-网盘资源总清单·  https://www.wodewangpan.top 
+网盘资源总清单 · <a href="https://www.wodewangpan.top" target="_blank" rel="noopener">https://www.wodewangpan.top</a>
 
 - 合计：**970 个资源 · 9 个分类**
 - 生成日期：2026-11-11
