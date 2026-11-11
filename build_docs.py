@@ -71,17 +71,30 @@ while i < n:
 # 2. Inline tokeniser (links + bold) -> iterate tokens
 # ---------------------------------------------------------------------------
 def iter_inline(text):
-    """Yield tokens: ('text', s) | ('link', text, url) | ('bold', s)."""
+    """Yield tokens: ('text', s) | ('link', text, url) | ('bold', s).
+
+    Handles three inline forms found in the source:
+      - raw HTML anchors  <a href="URL" ...>TEXT</a>  (already present in source)
+      - markdown links    [TEXT](URL)
+      - bold              **TEXT**
+    """
     text = text.replace("`", "")  # drop inline-code backticks
     pos = 0
-    combined = re.compile(r"\[([^\]]+)\]\(<?([^)>]+)>?\)|\*\*(.+?)\*\*")
+    combined = re.compile(
+        r"<a\s+[^>]*href=\"([^\"]*)\"[^>]*>(.*?)</a>"
+        r"|\[([^\]]+)\]\(<?([^)>]+)>?\)"
+        r"|\*\*(.+?)\*\*",
+        re.S | re.I,
+    )
     for m in combined.finditer(text):
         if m.start() > pos:
             yield ("text", text[pos:m.start()])
-        if m.group(1) is not None:
-            yield ("link", m.group(1), m.group(2))
-        else:
-            yield ("bold", m.group(3))
+        if m.group(1) is not None:          # raw <a> anchor
+            yield ("link", m.group(2), m.group(1))
+        elif m.group(3) is not None:        # markdown link
+            yield ("link", m.group(3), m.group(4))
+        else:                               # bold
+            yield ("bold", m.group(5))
         pos = m.end()
     if pos < len(text):
         yield ("text", text[pos:])
